@@ -6,9 +6,18 @@
     "start": "next start"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/server": "^11.10.0",
+    "@mantine/core": "^5.7.1",
+    "@mantine/hooks": "^5.7.1",
+    "@mantine/next": "^5.7.1",
+    "@mantine/notifications": "^5.7.1",
+    "face-api.js": "^0.22.2",
     "next": "latest",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-webcam": "^7.0.1",
+    "valtio": "^1.7.5"
   },
   "devDependencies": {
     "@types/node": "18.11.3",
