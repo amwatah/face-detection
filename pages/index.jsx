@@ -4,8 +4,11 @@ import React, { useCallback, useRef, useState } from "react";
 import Webcam from "react-webcam";
 import * as faceapi from "face-api.js";
 
+import { Loader } from "@mantine/core";
+
 const Home = () => {
   const [picture, setPicture] = useState("");
+  const [confirmedStatus, setConfirmedStatus] = useState("not-started");
   const [detectedFace, setDetectedFace] = useState({});
   const webcamRef = React.useRef();
   const imageRef = useRef();
@@ -15,6 +18,7 @@ const Home = () => {
   }, [imageRef]);
 
   async function runFaceDetection() {
+    setConfirmedStatus("started");
     await faceapi.loadSsdMobilenetv1Model("/models");
     await faceapi.loadAgeGenderModel("/models");
     const detections = await faceapi
@@ -22,6 +26,7 @@ const Home = () => {
       .withAgeAndGender();
     console.log(detections);
     setDetectedFace(detections);
+    setConfirmedStatus("finished");
   }
 
   return (
@@ -75,15 +80,26 @@ const Home = () => {
           )}
         </div>
         <Button onClick={runFaceDetection} className=" m-3">
-          RUN FACE RECOGNITION ALGORITHM
+          COMPUTE FACE
         </Button>
         <section className=" results">
-          {!picture == "" && detectedFace && (
+          {confirmedStatus === "started" && <Loader size="xl" variant="bars" />}
+          {confirmedStatus === "finished" && !(detectedFace === undefined) && (
             <div className=" flex flex-col items-center">
-              <h4>GENDER /JINSIA</h4>
+              <h4>GENDER</h4>
               <h2 className=" uppercase font-bold">{detectedFace.gender}</h2>
               <h4> PROBABILITY</h4>
               <h2>{detectedFace.genderProbability * 100} %</h2>
+            </div>
+          )}
+          {confirmedStatus === "finished" && detectedFace === undefined && (
+            <div className=" text-center">
+              <h3 className=" text-red-800">
+                FACE RECOGNITION FAILED !! TRY AGAIN
+              </h3>
+              <p className=" uppercase">
+                adjust your face ama ununue camera ingine
+              </p>
             </div>
           )}
         </section>
