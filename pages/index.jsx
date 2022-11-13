@@ -3,6 +3,7 @@ import Head from "next/head";
 import React, { useCallback, useRef, useState } from "react";
 import Webcam from "react-webcam";
 import * as faceapi from "face-api.js";
+import { MdCameraswitch } from "react-icons/md";
 
 import { Loader } from "@mantine/core";
 
@@ -10,6 +11,7 @@ const Home = () => {
   const [picture, setPicture] = useState("");
   const [confirmedStatus, setConfirmedStatus] = useState("not-started");
   const [detectedFace, setDetectedFace] = useState({});
+  const [camera, setCamera] = useState("user");
   const webcamRef = React.useRef();
   const imageRef = useRef();
   const capture = useCallback(() => {
@@ -39,6 +41,15 @@ const Home = () => {
       <div className=" flex flex-col items-center">
         <h3>GROUP FOUR FACE DETECTION PROJECT</h3>
         <h4>PLACE YOUR FACE IN CENTER</h4>
+        <button
+          onClick={() => {
+            setCamera(camera === "user" ? "environment" : "user");
+          }}
+          className=" text-lg"
+        >
+          <MdCameraswitch />
+        </button>
+
         <div>
           {picture == "" ? (
             <Webcam
@@ -50,7 +61,7 @@ const Home = () => {
               videoConstraints={{
                 width: 400,
                 height: 400,
-                facingMode: "user",
+                facingMode: camera,
               }}
               className="rounded-full"
             />
