@@ -4,6 +4,7 @@ A face detection  app . utilizes  tensorflow js  face recognition model ;
 gracefully build  at MULTIMEDIA UNIVERSITY  by 
 
 CIT-222-O54/2019 AMWATAH OBUYA ;
+CIT-222-005/2019 GERALD MUCHUKU ;
 
 ## Deploy your own
 
