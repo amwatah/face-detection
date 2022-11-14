@@ -1,7 +1,8 @@
 ## group four face detection project
 
-this is a simple face recognition project by MMU bct student to illustrate
-face recognition using tensor flow AI model
+A face detection  app . utilizes  tensorflow js  face recognition model ;
+gracefully build  at MULTIMEDIA UNIVERSITY  by ;
+CIT-222-O54/2019 AMWATAH OBUYA ;
 
 ## Deploy your own
 
