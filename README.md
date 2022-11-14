@@ -6,6 +6,8 @@ gracefully build  at MULTIMEDIA UNIVERSITY  by
 CIT-222-O54/2019 AMWATAH OBUYA ;
 CIT-222-005/2019 GERALD MUCHUKU ;
 CIT-222-082/2019 Kariuki I. Theuri;
+CIT-222-004/2019 Alex Muriuki Kimani;
+CIT-222-026/2019 Cecilia M. Kiio;
 
 ## Deploy your own
 
